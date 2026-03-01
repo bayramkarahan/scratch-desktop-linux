@@ -1,10 +1,10 @@
 <div>
-  <h3 align="center"><img src="https://raw.githubusercontent.com/gaetanlhf/scratch-desktop-linux/main/Icon.svg" width="100"/><br>scratch-desktop-linux</h3>
+  <h3 align="center"><img src="https://raw.githubusercontent.com/bayramkarahan/scratch-desktop-linux/main/Icon.svg" width="100"/><br>scratch-desktop-linux</h3>
 </div>
 
 # Introduction
 A script to generate GNU/Linux packages of Scratch Desktop from the Microsoft Windows version.  
-You can find pre-compiled packages on the [release page](https://github.com/gaetanlhf/scratch-desktop-linux/releases).  
+You can find pre-compiled packages on the [release page](https://github.com/bayramkarahan/scratch-desktop-linux/releases).  
 **NOTE: These packages are not verified by, affiliated with, or supported by the MIT Media Lab.**
 
 # Usage
