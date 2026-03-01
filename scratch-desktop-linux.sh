@@ -36,7 +36,7 @@ cd "$MAKE_FOLDER" || exit
 # Install npm dependencies
 npm install electron@$ELECTRON_VERSION --save-dev
 npm install electron-installer-debian
-npm install electron-installer-redhat
+#npm install electron-installer-redhat
 
 # Download the latest version of Scratch Desktop for Microsoft Windows and extract it
 wget https://downloads.scratch.mit.edu/desktop/Scratch%20$SCRATCH_VERSION%20Setup.exe -O scratch-desktop.exe
@@ -58,4 +58,4 @@ rm "$EXTRACT_FOLDER"/resources/elevate.exe
 
 # Create packages
 "$MAKE_FOLDER"/node_modules/.bin/electron-installer-debian --src "$EXTRACT_FOLDER" --dest "$PACKAGES_FOLDER" --arch amd64 --icon "$EXTRACT_FOLDER"/resources/Icon.svg --config "$ROOT_FOLDER"/config.json
-"$MAKE_FOLDER"/node_modules/.bin/electron-installer-redhat --src "$EXTRACT_FOLDER" --dest "$PACKAGES_FOLDER" --arch x86_64 --icon "$EXTRACT_FOLDER"/resources/Icon.svg --config "$ROOT_FOLDER"/config.json
+#"$MAKE_FOLDER"/node_modules/.bin/electron-installer-redhat --src "$EXTRACT_FOLDER" --dest "$PACKAGES_FOLDER" --arch x86_64 --icon "$EXTRACT_FOLDER"/resources/Icon.svg --config "$ROOT_FOLDER"/config.json
