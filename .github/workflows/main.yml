@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: "0 0 1 2 6"
+
+jobs:
+  compile:
+    name: Dagitim
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Run the build process with Docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: debian:testing
+          options: --privileged -v ${{ github.workspace }}:/root -v ${{ github.workspace }}/output:/output
+          run: |
+            cd /root
+
+            apt update
+            apt install -y npm p7zip-full dpkg-dev fakeroot wget
+
+            chmod +x scratch-desktop-linux.sh
+            bash scratch-desktop-linux.sh
+
+            mkdir -p /output
+            mv packages/*.deb /output/
+
+      - name: Create Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "current"
+          prerelease: false
+          title: "scratch-desktop 3.29.1"
+          files: output/*.deb
